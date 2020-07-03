@@ -23,11 +23,15 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: order
-          uri: http://order:8082
+        - id: order5
+          uri: http://order5:8080
           predicates:
             - Path=/orders/**
-        - id: product
-          uri: http://product:8081
+        - id: seat5
+          uri: http://seat5:8080
           predicates:
             - Path=/products/**
+        - id: payment5
+          uri: http://payment5:8080
+          predicates:
+            - Path=/payments/**
