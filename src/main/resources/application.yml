@@ -1,0 +1,33 @@
+spring:
+  profiles: default
+  cloud:
+    gateway:
+      routes:
+        - id: order
+          uri: http://localhost:8081
+          predicates:
+            - Path=/orders/**
+        - id: seat
+          uri: http://localhost:8082
+          predicates:
+            - Path=/seats/**
+        - id: payment
+          uri: http://localhost:8086
+          predicates:
+            - Path=/payments/**
+
+---
+
+spring:
+  profiles: docker
+  cloud:
+    gateway:
+      routes:
+        - id: order
+          uri: http://order:8082
+          predicates:
+            - Path=/orders/**
+        - id: product
+          uri: http://product:8081
+          predicates:
+            - Path=/products/**
