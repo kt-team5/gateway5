@@ -30,7 +30,7 @@ spring:
         - id: seat
           uri: http://seat5:8080
           predicates:
-            - Path=/seats/ui/index.html
+            - Path=/seats/**,/ui/**
         - id: pay
           uri: http://payment5:8080
           predicates:
